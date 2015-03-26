@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009"  creationComplete="init()"
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:ns="http://www.esri.com/2008/ags">
+	<fx:Declarations>
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.esri.ags.layers.Layer;
+			
+			//初始化方法
+			public function init():void{
+			
+			}
+			
+			public function addLayer(layer:Layer):void{
+				map.addLayer(layer);
+			}
+			
+		]]>
+	</fx:Script>
+	<ns:Map id="map">
+		
+	</ns:Map>
+</s:BorderContainer>

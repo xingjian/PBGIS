@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+      <mapservices>
+			<mapservice name="bjtraffic"  layers="bjtraffic:bjtraffic"  format="image/png"  label="basemap"  type="wms"  visible="true" alpha="1">http://172.18.18.34:7777/geoserver/wms</mapservice>
+	  </mapservices>
+		<extent>
+			<initextent>115.375,36.153308627,117.507567827,41.058860536</initextent>
+			<maxextent>115.375,36.153308627,117.507567827,41.058860536</maxextent>
+		</extent>
+</configuration>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" creationComplete="init()" contentBackgroundAlpha="0.8"
+		 xmlns:s="library://ns.adobe.com/flex/spark" contentBackgroundColor="#9D9486" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100" height="300" xmlns:ns="http://openscales.org" xmlns:core="com.dhcc.gis.core.*">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.dhcc.gis.skins.eButtonSkin;
+			import com.dhcc.gis.skins.nButtonSkin;
+			import com.dhcc.gis.skins.sButtonSkin;
+			import com.dhcc.gis.skins.wButtonSkin;
+			
+			import mx.collections.ArrayCollection;
+			
+			import org.openscales.core.Map;
+			import org.openscales.core.events.MapEvent;
+			import org.openscales.geometry.basetypes.Bounds;
+			
+			private var currentExtent:Bounds;
+			// previous extent array
+			private var prevExtentArray:ArrayCollection=new ArrayCollection();
+			// next extent array
+			private var nextExtentArray:ArrayCollection=new ArrayCollection();
+			// previous and next extent mode
+			private var prevNextExtentMode:Boolean=false;
+			
+			[Binable]
+			private var _map:Map;
+			private function init():void{
+
+			}
+			
+			/**
+			 *  set map
+			 */
+			public function set map(map:Map):void
+			{
+				if (map == null)
+					return;
+				this._map=map;
+				// remember the map's extent firstly
+				currentExtent=this._map.extent;
+				map.addEventListener(MapEvent.MOVE_END, mapMoved);
+			}
+			
+			/**
+			 *  map moved event handler
+			 */
+			private function mapMoved(event:MapEvent):void
+			{
+				if (this.prevNextExtentMode)
+				{
+					this.prevNextExtentMode=false;
+					return;
+				}
+				if (currentExtent)
+					prevExtentArray.addItem(currentExtent);
+				// remember map's extent when map moved and out of prevNextExtent mode
+				currentExtent=this._map.extent;
+				nextExtentArray.removeAll();
+			}
+			
+			/**
+			 * zoom to next extent view
+			 */
+			public function zoomToNextExtent():void
+			{
+				if (nextExtentArray.length == 0)
+					return;
+				this.prevNextExtentMode=true;
+				prevExtentArray.addItem(this._map.extent);
+				var index:Number=nextExtentArray.length - 1;
+				var extent:Bounds=nextExtentArray.removeItemAt(index) as Bounds;
+				this._map.zoomToExtent(extent);
+			}
+			
+			/**
+			 * zoom to previous extent view
+			 */
+			public function zoomToPrevExtent():void
+			{
+				if (prevExtentArray.length == 0)
+					return;
+				this.prevNextExtentMode=true;
+				nextExtentArray.addItem(this._map.extent);
+				var index:Number=prevExtentArray.length - 1;
+				var extent:Bounds=prevExtentArray.removeItemAt(index) as Bounds;
+				this._map.zoomToExtent(extent);
+			}
+			
+		]]>
+	</fx:Script>
+	<s:VGroup horizontalAlign="center">
+		<core:PBPan  />
+		<s:HGroup gap="0">
+			<s:Button id="prevExt"
+					  x="0" y="19"
+					  click="zoomToPrevExtent()"
+					  skinClass="com.dhcc.gis.skins.wButtonSkin"
+					  toolTip="前一视图"
+					  />
+			<s:Button id="nextExt"
+					  x="0" y="19"
+					  click="zoomToNextExtent()"
+					  skinClass="com.dhcc.gis.skins.eButtonSkin"
+					  toolTip="后一视图"
+					  />
+		</s:HGroup>
+ 		<core:PBZoom id="zoom" />
+	</s:VGroup>
+</s:Group>

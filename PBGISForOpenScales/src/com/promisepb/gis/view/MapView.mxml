@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" creationComplete="init()" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:os="http://openscales.org" xmlns:view="com.dhcc.gis.view.*">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.dhcc.gis.events.PBGISEvent;
+			import com.dhcc.gis.util.ConfigData;
+			import com.dhcc.gis.util.ConfigManager;
+			
+			import mx.controls.Alert;
+			
+			import org.openscales.core.Map;
+			import org.openscales.core.layer.ogc.WMS;
+			import org.openscales.fx.layer.FxWMS;
+			import org.openscales.geometry.basetypes.Bounds;
+			import org.openscales.geometry.basetypes.Location;
+			
+			[Bindable]
+			private var map:Map;;
+			private var configManager:ConfigManager = new ConfigManager();
+			public var configXMLURL:String;
+			private var configData:ConfigData;
+			
+			//初始化方法
+			public function init():void{
+				configManager.addEventListener("loadConfigComplete",loadConfigCompleteHandle);
+				configManager.addEventListener("loadConfigError",loadConfigErrorHandle);
+				configManager.configXMLLoad(configXMLURL);
+			}
+			
+			//读取配置文件成功
+			private function loadConfigCompleteHandle(event:PBGISEvent):void{
+				configData = event.data as ConfigData;
+				loadMap();
+				map = fxmap.map;
+				var initExtent:Object = configData.initExtent;
+				var bounds:Bounds = new Bounds(Number(initExtent.xmin),Number(initExtent.ymin),Number(initExtent.xmax),Number(initExtent.ymax)); 
+				map.zoomToExtent(bounds);
+			}
+			
+			//加载地图
+			private function loadMap():void{
+				var mapservices:Array = configData.mapservices;
+				for each(var mapservice:Object in mapservices){
+					var type:String = mapservice.type;
+					if(type=="wms"){
+						var wmsLayer:WMS = new WMS();
+						wmsLayer.name = mapservice.name;
+						wmsLayer.url = mapservice.msURL;
+						wmsLayer.layers = mapservice.layers;
+						wmsLayer.visible = mapservice.visible;
+						wmsLayer.alpha = mapservice.alpha;
+						wmsLayer.format = mapservice.format;
+						fxmap.map.addLayer(wmsLayer);
+					}
+				}
+			}
+			
+			//读取配置文件错误
+			public function loadConfigErrorHandle():void{
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<os:Map id="fxmap" width="100%"  height="100%">
+		<os:MousePosition x="10"  y="{fxmap.height-20}"  displayProjection="EPSG:4326"/>
+		<os:WheelHandler/>
+		<os:DragHandler  />
+		<view:Navigation map="{fxmap.map}"  />
+	</os:Map>
+	
+</s:Group>
