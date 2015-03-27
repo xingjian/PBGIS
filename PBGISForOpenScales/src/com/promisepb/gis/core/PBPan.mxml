@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--- Pan control to pan the map --> 
 <Control xmlns="org.openscales.fx.control.*" xmlns:s="library://ns.adobe.com/flex/spark"
-		 xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:core="com.dhcc.gis.core.*" > 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:core="com.promisepb.gis.core.*" > 
 	
 	<fx:Script>
 		<![CDATA[
@@ -203,42 +203,42 @@
 		<s:Button id="nwButton"
 				  x="2" y="2"
 				  click="onPanNorthWest(event)"
-				  skinClass="com.dhcc.gis.skins.nwButtonSkin"/>
+				  skinClass="com.promisepb.gis.skins.nwButtonSkin"/>
 		<s:Button id="wButton"
 				  x="0" y="19"
 				  click="onPanWest(event)"
-				  skinClass="com.dhcc.gis.skins.wButtonSkin"
+				  skinClass="com.promisepb.gis.skins.wButtonSkin"
 				  toolTip="wbutton"/>
 		<s:Button id="swButton"
 				  x="2" y="36"
 				  click="onPanSouthWest(event)"
-				  skinClass="com.dhcc.gis.skins.swButtonSkin"/>
+				  skinClass="com.promisepb.gis.skins.swButtonSkin"/>
 		<s:Button id="sButton"
 				  x="18" y="43"
 				  click="onPanSouth(event)"
-				  skinClass="com.dhcc.gis.skins.sButtonSkin"
+				  skinClass="com.promisepb.gis.skins.sButtonSkin"
 				  toolTip="sbutton"/>
 		<s:Button id="seButton"
 				  x="35" y="35"
 				  click="onPanSouthEast(event)"
-				  skinClass="com.dhcc.gis.skins.seButtonSkin"/>
+				  skinClass="com.promisepb.gis.skins.seButtonSkin"/>
 		<s:Button id="eButton"
 				  x="43" y="18"
 				  click="onPanEast(event)"
-				  skinClass="com.dhcc.gis.skins.eButtonSkin"
+				  skinClass="com.promisepb.gis.skins.eButtonSkin"
 				  toolTip="ebutton"/>
 		<s:Button id="neButton"
 				  x="35" y="2"
 				  click="onPanNorthEast(event)"
-				  skinClass="com.dhcc.gis.skins.neButtonSkin"/>
+				  skinClass="com.promisepb.gis.skins.neButtonSkin"/>
 		<s:Button id="nButton"
 				  x="18" y="0"
 				  click="onPanNorth(event)"
-				  skinClass="com.dhcc.gis.skins.nButtonSkin"
+				  skinClass="com.promisepb.gis.skins.nButtonSkin"
 				  toolTip="nbutton"/>
 		<core:IconButton id="innerButton"
 							   x="18" y="18"
-							   skinClass="com.dhcc.gis.skins.InnerButtonSkin"
+							   skinClass="com.promisepb.gis.skins.InnerButtonSkin"
 							   toolTip="innerButton"
 							   />
 	</s:Group>

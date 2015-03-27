@@ -1,9 +1,9 @@
-package com.dhcc.gis.events
+package com.promisepb.gis.events
 {
 	import flash.events.Event;
 	/**   
 	 * 类名: PBGISEvent.as 
-	 * 包名: com.dhcc.gis.events 
+	 * 包名: com.promisepb.gis.events 
 	 * 功能: PBGISEvent事件
 	 * 作者: promisePB xingjian@yeah.net   
 	 * 日期: 2013-7-25 下午01:37:47 

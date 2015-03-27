@@ -547,7 +547,7 @@
 		
 		<s:Button id="zoomInButton"
 				  enabled="false"
-				  skinClass="com.dhcc.gis.skins.NavigationZoomInButtonSkin"
+				  skinClass="com.promisepb.gis.skins.NavigationZoomInButtonSkin"
 				  toolTip="zoomInTooltip"/>
 		
 		<s:VSlider id="slider"
@@ -556,14 +556,14 @@
 				   enabled="true"
 				   liveDragging="false"
 				   showDataTip="true"
-				   skinClass="com.dhcc.gis.skins.NavigationVSliderSkin"
+				   skinClass="com.promisepb.gis.skins.NavigationVSliderSkin"
 				   snapInterval="1"
 				   value="{this.currentSliderValue}"
 				   />
 		
 		<s:Button id="zoomOutButton"
 				  enabled="false"
-				  skinClass="com.dhcc.gis.skins.NavigationZoomOutButtonSkin"
+				  skinClass="com.promisepb.gis.skins.NavigationZoomOutButtonSkin"
 				  toolTip="{resourceManager.getString('ESRIMessages', 'zoomOutTooltip')}"/>
 	</s:VGroup>
 </Control>

@@ -1,4 +1,4 @@
-package com.dhcc.gis.util
+package com.promisepb.gis.util
 {
 	import org.openscales.core.layer.ogc.WFS;
 

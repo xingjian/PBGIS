@@ -1,11 +1,11 @@
-package com.dhcc.gis.layers
+package com.promisepb.gis.layers
 {
 	import org.openscales.core.layer.ogc.WMS;
 	
 	/**
 	 * 类名：PBWMSLayer.as
 	 * 功能：WMS服务类型图层
-	 * 包名：com.dhcc.gis.layers
+	 * 包名：com.promisepb.gis.layers
 	 * 作者：邢健  xingjian@yeah.net
 	 * 日期：2013年7月25日
 	 * 版本：V1.0

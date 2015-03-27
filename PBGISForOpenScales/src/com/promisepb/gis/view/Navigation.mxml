@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" creationComplete="init()" contentBackgroundAlpha="0.8"
 		 xmlns:s="library://ns.adobe.com/flex/spark" contentBackgroundColor="#9D9486" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100" height="300" xmlns:ns="http://openscales.org" xmlns:core="com.dhcc.gis.core.*">
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100" height="300" xmlns:ns="http://openscales.org" xmlns:core="com.promisepb.gis.core.*">
 	<fx:Declarations>
 		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
-			import com.dhcc.gis.skins.eButtonSkin;
-			import com.dhcc.gis.skins.nButtonSkin;
-			import com.dhcc.gis.skins.sButtonSkin;
-			import com.dhcc.gis.skins.wButtonSkin;
+			import com.promisepb.gis.skins.eButtonSkin;
+			import com.promisepb.gis.skins.nButtonSkin;
+			import com.promisepb.gis.skins.sButtonSkin;
+			import com.promisepb.gis.skins.wButtonSkin;
 			
 			import mx.collections.ArrayCollection;
 			
@@ -98,13 +98,13 @@
 			<s:Button id="prevExt"
 					  x="0" y="19"
 					  click="zoomToPrevExtent()"
-					  skinClass="com.dhcc.gis.skins.wButtonSkin"
+					  skinClass="com.promisepb.gis.skins.wButtonSkin"
 					  toolTip="前一视图"
 					  />
 			<s:Button id="nextExt"
 					  x="0" y="19"
 					  click="zoomToNextExtent()"
-					  skinClass="com.dhcc.gis.skins.eButtonSkin"
+					  skinClass="com.promisepb.gis.skins.eButtonSkin"
 					  toolTip="后一视图"
 					  />
 		</s:HGroup>

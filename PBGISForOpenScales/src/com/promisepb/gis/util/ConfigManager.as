@@ -1,6 +1,6 @@
-package com.dhcc.gis.util
+package com.promisepb.gis.util
 {
-	import com.dhcc.gis.events.PBGISEvent;
+	import com.promisepb.gis.events.PBGISEvent;
 	
 	import flash.events.EventDispatcher;
 	
@@ -11,7 +11,7 @@ package com.dhcc.gis.util
 	/**
 	 * 类名：ConfigManager.as
 	 * 功能：该类初始化加载配置地图的gisconfig.xml
-	 * 包名：com.dhcc.gis.util
+	 * 包名：com.promisepb.gis.util
 	 * 作者：邢健  xingjian@yeah.net
 	 * 日期：2013年7月25日
 	 * 版本：V1.0

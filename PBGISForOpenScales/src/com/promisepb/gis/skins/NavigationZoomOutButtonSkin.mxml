@@ -31,7 +31,7 @@
         <s:State name="over"/>
         <s:State name="up"/>
     </s:states>
-
+    
     <s:BitmapImage left="0" right="0" top="0" bottom="0"
                    source="@Embed(source='../images/navigation_icons.swf',symbol='MinusButton_Up')"
                    source.disabled="@Embed(source='../images/navigation_icons.swf',symbol='MinusButton_Disabled')"

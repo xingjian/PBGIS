@@ -22,7 +22,7 @@
              currentStateChanging="onCurrentStateChanging(event)">
 
     <fx:Metadata>
-        [HostComponent("com.dhcc.gis.core.IconButton")]
+        [HostComponent("com.promisepb.gis.core.IconButton")]
     </fx:Metadata>
 
     <fx:Script>
